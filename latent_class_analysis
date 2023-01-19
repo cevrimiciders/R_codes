@@ -9,3 +9,36 @@ lca_sonuc <- poLCA(cbind(yemek, koltuk, eglence, bolge, lounge)~1, data=lca_data
 lca_data$grup <- lca_sonuc$predclass
 
 lca_data$probabilities <- lca_sonuc$posterior
+
+
+
+
+
+
+
+library(poLCA)
+
+
+
+iki_grup_sonuc <- poLCA(cbind(yemek,eglence,koltuk,bolge,lounge) ~ 1, data = lca_data, nclass = 2)
+
+
+uc_grup_sonuc <- poLCA(cbind(yemek,eglence,koltuk,bolge,lounge) ~ 1, data = lca_data, nclass = 3, maxiter = 100000)
+
+dort_grup_sonuc <- poLCA(cbind(yemek,eglence,koltuk,bolge,lounge) ~ 1, data = lca_data, nclass = 4, maxiter = 100000)
+
+
+bes_grup_sonuc <- poLCA(cbind(yemek,eglence,koltuk,bolge,lounge) ~ 1, data = lca_data, nclass = 5,  maxiter = 100000)
+
+
+
+lca_data$grup <- dort_grup_sonuc$predclass
+
+
+
+table(lca_data$grup)
+
+
+
+
+
