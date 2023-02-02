@@ -9,3 +9,11 @@ lca_sonuc <- poLCA(cbind(yemek, koltuk, eglence, bolge, lounge)~1, data=lca_data
 lca_data$grup <- lca_sonuc$predclass
 
 lca_data$probabilities <- lca_sonuc$posterior
+
+
+
+
+# veri içinde 0'lar olduğunda tüm değerleri 1 arttırarak analiz yapma kodları
+
+uc_grup_sonuc <- poLCA(cbind(A1_toplam=A1_toplam+1, A2_toplam=A2_toplam+1, A3_toplam=A3_toplam+1, A4_toplam=A4_toplam+1) ~ 1, data = anoma60_72, nclass = 3)
+
